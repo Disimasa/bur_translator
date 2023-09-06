@@ -5,7 +5,7 @@ from translator import get_rus_bur_translator
 
 app = FastAPI()
 
-origins = ['https://bur-translator.vercel.app/']
+origins = ['https://bur-translator.vercel.app']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
