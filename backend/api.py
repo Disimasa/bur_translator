@@ -5,7 +5,7 @@ from translator import get_rus_bur_translator
 
 app = FastAPI()
 
-origins = ['http://localhost:3000']
+origins = ['https://bur-translator.vercel.app/']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -18,6 +18,11 @@ app.add_middleware(
 @app.on_event('startup')
 async def cache_models():
     get_rus_bur_translator()
+
+
+@app.get('/')
+def root():
+    return {'Hello': 'world'}
 
 
 @app.post('/translate/rus_bur')
