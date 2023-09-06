@@ -48,16 +48,17 @@
     <p class="w-1/2">БУРЯТСКИЙ</p>
   </div>
 
-  <div class="flex flex-col md:flex-row">
+  <div class="flex flex-col md:flex-row flex-wrap">
     <textarea
         placeholder="Введите текст"
-        class="min-h-[10rem] min-w-[20rem] flex-1 resize-none p-4 bg-transparent border-0 outline-none"
+        class="min-h-[10rem] min-w-[20rem] flex-1 resize-none p-4 bg-transparent border-0 outline-none order-2 md:order-1"
+        maxlength="200"
         bind:value={inputText}
     ></textarea>
 
-    <div class="border-t mx-2 md:border-r md:my-2"></div>
+    <div class="border-t mx-2 md:border-r md:my-2 order-3"></div>
 
-    <div class="min-h-[10rem] min-w-[20rem] flex-1 p-4">
+    <div class="min-h-[10rem] min-w-[20rem] flex-1 p-4 order-4 md:order-3">
       {#if translationLoading}
         <div class="w-full h-full flex justify-center items-center">
           <Circle size="40" color="rgb(96 165 250)"/>
@@ -70,16 +71,17 @@
         ></textarea>
       {/if}
     </div>
-  </div>
 
-  <div class="w-full flex justify-between items-center mt-2">
-    {#if translationDirection === 'bur_rus'}
-      <div class="flex" transition:fade={{duration: 400}}>
-        <Button class="rounded-lg py-0 px-2 pb-1 mr-2" on:click={() => addSymbol('ү')}>ү</Button>
-        <Button class="rounded-lg py-0 px-2 pb-1 mr-2" on:click={() => addSymbol('һ')}>һ</Button>
-        <Button class="rounded-lg py-0 px-2 pb-1" on:click={() => addSymbol('ө')}>ө</Button>
-      </div>
-    {/if}
-    <Button on:click={translate}>Перевести</Button>
+    <div class="w-full flex justify-between items-center mt-2 order-1 md:order-4">
+      {#if translationDirection === 'bur_rus'}
+        <div class="flex" transition:fade={{duration: 400}}>
+          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={() => addSymbol('ү')}>ү</Button>
+          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={() => addSymbol('һ')}>һ</Button>
+          <Button class="rounded-lg px-2 pb-1" on:click={() => addSymbol('ө')}>ө</Button>
+        </div>
+      {/if}
+      <Button on:click={translate} class="py-2 px-6">Перевести</Button>
+    </div>
+
   </div>
 </div>
