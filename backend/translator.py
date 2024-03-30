@@ -3,7 +3,6 @@ from functools import cache, cached_property
 
 from config import global_config
 
-
 class Translator:
     def __init__(self, model_name):
         self.tokenizer = NllbTokenizer.from_pretrained(model_name, low_cpu_mem_usage=True, use_auth_token=global_config.HF_TOKEN)
@@ -41,3 +40,7 @@ class Translator:
 
 def get_translator():
     return Translator('SaranaAbidueva/nllb-200-bxr-ru')
+
+
+translator = get_translator()
+
