@@ -1,13 +1,13 @@
 from transformers import AutoModelForSeq2SeqLM, NllbTokenizer
 from functools import cache, cached_property
 
-from backend.config import global_config
+from config import global_config
 
 
 class Translator:
     def __init__(self, model_name):
-        self.tokenizer = NllbTokenizer.from_pretrained(model_name, low_cpu_mem_usage=True)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, low_cpu_mem_usage=True)
+        self.tokenizer = NllbTokenizer.from_pretrained(model_name, low_cpu_mem_usage=True, token=global_config.HF_TOKEN)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, low_cpu_mem_usage=True, token=global_config.HF_TOKEN)
         self.fix_tokenizer()
 
     def translate(self, text, src_lang='rus_Cyrl', tgt_lang='bxr_Cyrl', a=32, b=3, max_input_length=1024, num_beams=4, **kwargs):
@@ -41,4 +41,4 @@ class Translator:
 
 @cache
 def get_translator():
-    return Translator('SaranaAbidueva/nllb-200-bxr-ru', token=global_config.HF_TOKEN)
+    return Translator('SaranaAbidueva/nllb-200-bxr-ru')
