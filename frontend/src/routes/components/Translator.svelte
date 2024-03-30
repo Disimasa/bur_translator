@@ -2,9 +2,9 @@
   import Icon from 'svelte-icons-pack/Icon.svelte'
   import CgArrowsExchange from 'svelte-icons-pack/cg/CgArrowsExchange'
   import { Circle } from 'svelte-loading-spinners'
-  import { PUBLIC_BACKEND_URL } from '$env/static/public'
   import { fade } from 'svelte/transition'
   import Button from "./Button.svelte";
+  import axios from 'axios'
 
   let inputText = ''
   let translationText = ''
@@ -24,18 +24,14 @@
 
   async function translate() {
     translationLoading = true
-    const response = await fetch(`${PUBLIC_BACKEND_URL}/translate/${translationDirection}/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        text: inputText
-      })
-    }).then(async res => await res.json())
-      .catch(err => alert('Ошибка при переводе'))
 
-    translationText = response.translation
+    translationText = await axios.post('/translate', {
+      translationDirection,
+      inputText
+    }).then(async res => await res.data)
+      .catch(err => { alert('Ошибка при переводе!'); return ''})
+
+
     translationLoading = false
   }
 
