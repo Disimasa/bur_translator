@@ -39,6 +39,5 @@ class Translator:
         self.tokenizer.added_tokens_decoder = {}
 
 
-@cache
 def get_translator():
     return Translator('SaranaAbidueva/nllb-200-bxr-ru')
