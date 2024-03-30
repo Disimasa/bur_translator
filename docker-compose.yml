@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - '3020:3020'
+    restart: unless-stopped
+
+  frontend:
+    restart: unless-stopped
+    build:
+      context: ./frontend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
