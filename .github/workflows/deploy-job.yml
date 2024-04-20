@@ -6,8 +6,6 @@ jobs:
   prepare-environment:
     runs-on: self-hosted
     steps:
-      - name: Switch to project dir
-        run: cd /home/translator
       - name: Update project
         run: git pull
   deploy:
