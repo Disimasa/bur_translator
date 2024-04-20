@@ -21,7 +21,6 @@
     translationDirection = translationDirection === 'rus_bur' ? 'bur_rus' : 'rus_bur'
     inputText = ''
     translationText = ''
-    console.log(translationDirection)
   }
 
   async function translate() {
@@ -48,7 +47,7 @@
   }
 
   async function handleEnter(event) {
-    if(event.code === 'Enter') {
+    if(event.keyCode===13) {
       event.preventDefault()
       await translate()
     }
@@ -56,7 +55,7 @@
 
 </script>
 <svelte:window on:keydown={handleEnter} />
-<div class="w-[45rem] rounded-3xl shadow-default mt-10 mx-6 p-4">
+<div class="w-[45rem] rounded-3xl shadow-default mt-10 mx-7 p-4">
   <div class="w-full flex items-center text-center pb-3 border-b" class:flex-row-reverse={translationDirection === 'bur_rus'}>
     <p class="w-1/2">РУССКИЙ</p>
     <button on:click={changeTranslationDirection}><Icon src={CgArrowsExchange} size="25"/></button>
@@ -73,7 +72,7 @@
 
     <div class="border-t mx-2 md:border-r md:my-2 order-3 md:order-2 flex-0"></div>
 
-    <div class="min-h-[10rem] min-w-[20rem] flex-1 order-4 md:order-3 flex items-center justify-center p-4 relative">
+    <div class="min-h-[10rem] min-w-[15rem] flex-1 order-4 md:order-3 flex items-center justify-center p-4 relative">
       {#if translationLoading}
         <Circle size="40" color="rgb(96 165 250)" class="m-auto" />
       {:else}
