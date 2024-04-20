@@ -55,7 +55,7 @@
 
 </script>
 <svelte:window on:keydown={handleEnter} />
-<div class="w-[45rem] rounded-3xl shadow-default mt-10 mx-7 p-4">
+<div class="w-[45rem] rounded-3xl shadow-default mt-10 mx-4 p-4">
   <div class="w-full flex items-center text-center pb-3 border-b" class:flex-row-reverse={translationDirection === 'bur_rus'}>
     <p class="w-1/2">РУССКИЙ</p>
     <button on:click={changeTranslationDirection}><Icon src={CgArrowsExchange} size="25"/></button>
