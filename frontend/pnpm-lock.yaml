@@ -32,6 +32,9 @@ dependencies:
   svelte-loading-spinners:
     specifier: ^0.3.4
     version: 0.3.4
+  svelte-sonner:
+    specifier: ^0.3.22
+    version: 0.3.22(svelte@4.2.12)
   svelte-switch:
     specifier: ^0.0.5
     version: 0.0.5
@@ -1880,6 +1883,14 @@ packages:
       svelte: 4.2.12
       typescript: 5.4.3
     dev: true
+
+  /svelte-sonner@0.3.22(svelte@4.2.12):
+    resolution: {integrity: sha512-1AEBl7rTP4oeMAmBmkcvoHNOwB8gPzz73RYApcY8pyDwbjBewU8ATnXV8N42omV1sQvtSX/X0o5A1nfkN3T6cg==}
+    peerDependencies:
+      svelte: '>=3 <5'
+    dependencies:
+      svelte: 4.2.12
+    dev: false
 
   /svelte-switch@0.0.5:
     resolution: {integrity: sha512-nVKSoOlJe1DNiiOyK/oMkZQwEuDgEq1fNmAYd+724Se8eyN/2HRbYiyOvDpNRpw0jJ+lE5vjLHfCruFrhJQFbA==}
