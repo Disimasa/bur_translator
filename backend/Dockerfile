@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 3020
 
-CMD ["gunicorn", "--preload", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "60000", "--bind", "0.0.0.0:3020", "api:app"]
+CMD ["gunicorn", "--preload", "--workers", "3", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "60000", "--bind", "0.0.0.0:3020", "api:app"]
