@@ -31,4 +31,4 @@ services:
       - ./keys/translate-bur.key:/etc/nginx/translate-bur.key
       - ./keys/translate-bur.crt:/etc/nginx/translate-bur.crt
     ports:
-      - '80:80'
+      - '443:443'
