@@ -1,12 +1,16 @@
+import torch
 from transformers import AutoModelForSeq2SeqLM, NllbTokenizer
 from config import global_config
 
 
 class Translator:
     def __init__(self, model_name):
-        self.tokenizer = NllbTokenizer.from_pretrained(model_name, low_cpu_mem_usage=True, use_auth_token=global_config.HF_TOKEN)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, low_cpu_mem_usage=True, use_auth_token=global_config.HF_TOKEN)
+        self.tokenizer = torch.load('./model/tokenizer.pt')
+        self.model = torch.load('./model/model.pt')
+        # self.tokenizer = NllbTokenizer.from_pretrained(model_name, low_cpu_mem_usage=True, use_auth_token=global_config.HF_TOKEN)
+        # self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, low_cpu_mem_usage=True, use_auth_token=global_config.HF_TOKEN)
         self.fix_tokenizer()
+        self.model.eval()
 
     def translate(self, text, src_lang='rus_Cyrl', tgt_lang='bxr_Cyrl', a=32, b=3, max_input_length=1024, num_beams=4, **kwargs):
         self.tokenizer.src_lang = src_lang

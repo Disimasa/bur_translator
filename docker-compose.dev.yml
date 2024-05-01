@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3020:3020'
+    volumes:
+      - ./backend/model/:/backend/model/
     restart: unless-stopped
   frontend:
     restart: unless-stopped
