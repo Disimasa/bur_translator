@@ -6,6 +6,8 @@ services:
       context: ./backend
     ports:
       - '3020:3020'
+    volumes:
+      - ./backend/model/:/backend/model/
     restart: unless-stopped
 
   frontend:
