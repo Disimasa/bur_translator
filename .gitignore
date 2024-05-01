@@ -3,3 +3,4 @@ backend/.env
 **/venv
 **/.idea
 **/node_modules
+**/keys
