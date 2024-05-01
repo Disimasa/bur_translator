@@ -1,7 +1,6 @@
 from transformers import AutoModelForSeq2SeqLM, NllbTokenizer
-from functools import cache, cached_property
-
 from config import global_config
+
 
 class Translator:
     def __init__(self, model_name):
