@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Body
 from starlette.middleware.cors import CORSMiddleware
-
-from translator import translator
+from backend.translator import translator
 
 app = FastAPI()
 
@@ -13,11 +12,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-# @app.on_event('startup')
-# async def cache_models():
-#     get_translator()
 
 
 @app.get('/')
