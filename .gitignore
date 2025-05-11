@@ -1,6 +1,6 @@
 backend/static
 backend/.env
-backend/model
+backend/model/
 **/venv
 **/.idea
 **/node_modules
