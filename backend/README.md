@@ -1,0 +1,1 @@
+Для очистки ```docker system prune -a --volumes```

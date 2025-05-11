@@ -1,4 +1,4 @@
-FROM python:3.10.0-slim
+FROM python:3.10.14-slim
 
 WORKDIR /backend
 
@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 3020
 
-CMD ["gunicorn", "--preload", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "60000", "--bind", "0.0.0.0:3020", "api:app"]
+#CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "3020"]
+
+CMD ["gunicorn", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "60000", "--bind", "0.0.0.0:3020", "api:app"]

@@ -1,9 +1,12 @@
 from fastapi import FastAPI, Body
 from starlette.middleware.cors import CORSMiddleware
-from backend.translator import translator
+from translator import get_translator
 
+print('create app')
 app = FastAPI()
-
+print('start loading model')
+translator = get_translator()
+print('finished loading model')
 origins = ["*"]
 app.add_middleware(
     CORSMiddleware,

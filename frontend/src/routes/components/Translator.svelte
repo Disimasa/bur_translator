@@ -11,10 +11,15 @@
   let translationText = ''
   let translationLoading = false
   let translationDirection: 'rus_bur' | 'bur_rus' = 'rus_bur'
+  let inputDom: HTMLTextAreaElement
 
-  function addSymbol(event, symbol) {
-    event.preventDefault()
-    inputText += symbol
+  function addSymbol(symbol: string) {
+    const start = inputDom.selectionStart
+    inputDom.setRangeText(symbol)
+    inputDom.focus()
+    const newPos = start + symbol.length;
+    inputDom.selectionStart = inputDom.selectionEnd = newPos
+    inputText = inputDom.value
   }
 
   function changeTranslationDirection() {
@@ -39,23 +44,23 @@
     translationText = await axios.post('/translate', {
       translationDirection,
       inputText
-    }).then(async res => await res.data)
-      .catch(err => { alert('Ошибка при переводе!'); return ''})
+    }, {timeout: 180000}).then(async res => await res.data)
+      .catch(err => { alert('Ошибка при переводе! ' + err); return ''})
 
 
     translationLoading = false
   }
 
-  async function handleEnter(event) {
-    if(event.keyCode===13) {
+  async function handleEnter(event: KeyboardEvent) {
+    if (event.key == 'Enter' && !event.shiftKey) {
       event.preventDefault()
       await translate()
     }
   }
 
 </script>
-<svelte:window on:keydown={handleEnter} />
-<div class="w-[45rem] rounded-3xl shadow-default mt-10 mx-4 p-4">
+
+<div class="w-[50rem] 3xl:w-[70rem] rounded-3xl shadow-default mt-10 mx-4 p-4">
   <div class="w-full flex items-center text-center pb-3 border-b" class:flex-row-reverse={translationDirection === 'bur_rus'}>
     <p class="w-1/2">РУССКИЙ</p>
     <button on:click={changeTranslationDirection}><Icon src={CgArrowsExchange} size="25"/></button>
@@ -63,10 +68,10 @@
   </div>
 
   <div class="flex flex-col md:flex-row flex-wrap">
-    <textarea
+    <textarea bind:this={inputDom} on:keydown={handleEnter}
         placeholder="Введите текст"
         class="min-h-[10rem] min-w-[15rem] flex-1 resize-none p-4 bg-transparent border-0 outline-none order-1 md:order-1"
-        maxlength="200"
+        maxlength="1000"
         bind:value={inputText}
     ></textarea>
 
@@ -87,9 +92,9 @@
     <div class="w-full flex justify-between items-center mt-2 order-2 md:order-4 mb-3 md:mb-0">
       {#if translationDirection === 'bur_rus'}
         <div class="flex" transition:fade={{duration: 200}}>
-          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={event => addSymbol(event, 'ү')}>ү</Button>
-          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={event => addSymbol(event, 'һ')}>һ</Button>
-          <Button class="rounded-lg px-2 pb-1" on:click={event => addSymbol(event, 'ө')}>ө</Button>
+          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={() => addSymbol('ү')}>ү</Button>
+          <Button class="rounded-lg px-2 pb-1 mr-2" on:click={() => addSymbol('һ')}>һ</Button>
+          <Button class="rounded-lg px-2 pb-1" on:click={() => addSymbol('ө')}>ө</Button>
         </div>
       {/if}
       <Button on:click={translate} class="py-2 px-6">Перевести</Button>
