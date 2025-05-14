@@ -26,6 +26,6 @@ class Translator:
 
 
 def get_translator():
-    return Translator('./model/nllb-rus-bxr-v3')
+    return Translator('./model/nllb-rus-bxr')
 
 
