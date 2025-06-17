@@ -60,7 +60,7 @@
 
 </script>
 
-<div class="w-[50rem] 3xl:w-[70rem] rounded-3xl shadow-default mt-10 mx-4 p-4">
+<div class="rounded-3xl shadow-default mt-10 p-4">
   <div class="w-full flex items-center text-center pb-3 border-b" class:flex-row-reverse={translationDirection === 'bur_rus'}>
     <p class="w-1/2">РУССКИЙ</p>
     <button on:click={changeTranslationDirection}><Icon src={CgArrowsExchange} size="25"/></button>
@@ -101,4 +101,5 @@
     </div>
 
   </div>
+
 </div>
