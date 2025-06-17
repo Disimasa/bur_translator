@@ -7,7 +7,7 @@
   <div class="w-[min(50rem,90%)] 3xl:w-[70rem]">
     <Translator/>
 
-    <div class="flex items-center justify-between mt-5 bg-white font-comfortaa shadow-default p-4 rounded-xl">
+    <div class="flex items-center justify-between my-5 bg-white font-comfortaa shadow-default p-4 rounded-xl">
       <p class="">
       Есть идеи или нашли ошибку? <a href="https://t.me/burtranslate" target="_blank" class="underline text-blue-400">Напишите нам!</a>
     </p>
