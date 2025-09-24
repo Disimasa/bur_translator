@@ -1,0 +1,11 @@
+sudo certbot certonly \
+  --webroot \
+  -w $(pwd)/nginx/www/certbot \
+  --email ваша@почта.ру \
+  --agree-tos \
+  --no-eff-email \
+  -d burtranslate.ru \
+  -d www.burtranslate.ru \
+  --config-dir $(pwd)/nginx/certs \
+  --work-dir $(pwd)/nginx/certs \
+  --logs-dir $(pwd)/nginx/logs
