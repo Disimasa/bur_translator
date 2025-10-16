@@ -3,7 +3,7 @@
 </script>
 
 <div class="w-full flex items-center h-20 p-4">
-  <img src={logo} class="mr-1.5" alt="Логотип Бурятский переводчик" width="44" height="44"/>
+  <img src={logo} class="mr-1.5" alt="Логотип Бурятский переводчик" width="44" height="44" loading="eager" decoding="async" fetchpriority="high"/>
   <h1 class="leading-5 font-comfortaa text-sm font-bold">Русско-бурятский
       <br>
       переводчик</h1>

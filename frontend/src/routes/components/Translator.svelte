@@ -1,6 +1,4 @@
 <script lang="ts">
-  import Icon from 'svelte-icons-pack/Icon.svelte'
-  import CgArrowsExchange from 'svelte-icons-pack/cg/CgArrowsExchange'
   import { Circle } from 'svelte-loading-spinners'
   import { fade } from 'svelte/transition'
   import Button from "./Button.svelte"
@@ -74,7 +72,11 @@
 <div class="rounded-3xl shadow-default mt-10 p-4">
   <div class="w-full flex items-center text-center pb-3 border-b" class:flex-row-reverse={translationDirection === 'bur_rus'}>
     <p class="w-1/2">РУССКИЙ</p>
-    <button on:click={changeTranslationDirection} aria-label="Поменять направление перевода"><Icon src={CgArrowsExchange} size="25"/></button>
+    <button on:click={changeTranslationDirection} aria-label="Поменять направление перевода">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M42 19H6M30 7l12 12M6.799 29h36m-36 0l12 12" />
+      </svg>
+    </button>
     <p class="w-1/2">БУРЯТСКИЙ</p>
   </div>
 

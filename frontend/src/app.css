@@ -9,5 +9,18 @@ body {
 }
 
 .font-comfortaa {
-  font-family: "Comfortaa", sans-serif;
+  font-family: "Comfortaa", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.app-root-contents {
+  display: contents;
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url('/fonts/Comfortaa-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF, U+1F00-1FFF, U+0400-04FF; /* basic latin + greek + cyrillic */
 }

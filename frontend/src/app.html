@@ -2,7 +2,7 @@
 <html lang="ru">
 	<head>
 		<title>Русско-бурятский переводчик</title>
-		<meta name="description" content="Бесплатный нейросетевой бурятский переводчик. Переводите тексты с бурятского на русский и с русcкого на бурятский онлайн с лучшим качеством. · Перевод с бурятского">
+		<meta name="description" content="Бесплатный нейросетевой бурятский переводчик. Переводите тексты с бурятского на русский и с русcкого на бурятский онлайн с лучшим качеством">
 
 		<meta charset="utf-8" />
 		<meta name="google-site-verification" content="biEPeJgmwnx9PlZUSVXE9-1iSxZ3tTBjbajbnHG4ywE" />
@@ -18,10 +18,7 @@
 
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap">
-		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+		<link rel="preload" href="/fonts/Comfortaa-Bold.ttf" as="font" type="font/ttf" crossorigin>
 
 		<link rel="canonical" href="https://burtranslate.ru/" />
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -90,11 +87,11 @@
 				webvisor:true
 		   });
 	</script>
-	<noscript><div><img src="https://mc.yandex.ru/watch/102593088" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<noscript><div><img src="https://mc.yandex.ru/watch/102593088" style="position:absolute; left:-9999px;" alt="YaMetrica" /></div></noscript>
 
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div class="app-root-contents">%sveltekit.body%</div>
 	</body>
 </html>
