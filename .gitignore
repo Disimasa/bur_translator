@@ -5,3 +5,5 @@ backend/model/
 **/.idea
 **/node_modules
 **/keys
+nginx/certs
+nginx/logs
