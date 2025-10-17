@@ -2,8 +2,8 @@
   import { Circle } from 'svelte-loading-spinners'
   import { fade } from 'svelte/transition'
   import Button from "./Button.svelte"
-  import axios from 'axios'
   import { toast } from "svelte-sonner"
+  import { apiFetch } from '$lib/api'
 
   let inputText = ''
   let translationText = ''
@@ -42,17 +42,12 @@
     }
 
     translationLoading = true
-
-    translationText = await axios.post('/translate', {
-      translationDirection,
-      inputText
-    }, {timeout: 180000}).then(async res => await res.data)
+    await apiFetch('/translate', { body: JSON.stringify({ translationDirection, inputText})})
+      .then(result => translationText = result)
       .catch(err => {
         toast.error('Ошибка при переводе! ' + err)
-        return ''
+        translationText = ''
       })
-
-
     translationLoading = false
   }
 

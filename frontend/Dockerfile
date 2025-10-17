@@ -12,8 +12,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 
 FROM base AS build
 ENV NODE_OPTIONS --max-old-space-size=4096
+ENV NODE_ENV=production
+ENV VITE_MODE=production
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN pnpm run build
+RUN pnpm run build:prod
 
 FROM base
 

@@ -18,7 +18,7 @@
 
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="preload" href="/fonts/Comfortaa-Bold.ttf" as="font" type="font/ttf" crossorigin>
+		<link rel="preload" href="/fonts/Comfortaa-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 		<link rel="canonical" href="https://burtranslate.ru/" />
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -71,6 +71,28 @@
 		    "https://t.me/burtranslate"
 		  ]
 		}
+		</script>
+
+		<!-- Асинхронная загрузка шрифта -->
+		<script>
+			// Загружаем шрифт асинхронно
+			(function() {
+				// Проверяем поддержку FontFace API
+				if (typeof FontFace !== 'undefined') {
+					const font = new FontFace('Comfortaa', 'url(/fonts/Comfortaa-Bold.woff2)')
+					font.load().then(function(loadedFont) {
+						document.fonts.add(loadedFont)
+						// Добавляем класс после загрузки шрифта
+						document.documentElement.classList.add('font-loaded')
+					}).catch(function(error) {
+						// В случае ошибки используем fallback
+						document.documentElement.classList.add('font-loaded')
+					});
+				} else {
+					// Fallback для старых браузеров
+					document.documentElement.classList.add('font-loaded')
+				}
+			})()
 		</script>
 
 		<script type="text/javascript" >

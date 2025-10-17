@@ -14,5 +14,5 @@ EXPOSE 3020
 
 #CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "3020"]
 
-# Используем 4 воркера для параллельной обработки запросов
-CMD ["gunicorn", "--workers", "2", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "1200", "--bind", "0.0.0.0:3020", "--preload", "api:app"]
+# Используем 3 воркера для параллельной обработки запросов
+CMD ["gunicorn", "--workers", "3", "--worker-class", "uvicorn.workers.UvicornWorker", "--timeout", "1200", "--bind", "0.0.0.0:3020", "--preload", "api:app"]

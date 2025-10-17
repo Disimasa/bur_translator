@@ -1,6 +1,6 @@
 <script>
     import Translator from "./components/Translator.svelte"
-    import LogosTelegram from '~icons/logos/telegram'
+    import TelegramLogo from "./components/TelegramLogo.svelte"
 </script>
 
 <div class="w-full h-full flex items-center justify-center">
@@ -32,7 +32,7 @@
           <a href="https://t.me/burtranslate" target="_blank" rel="noopener noreferrer" class="underline text-blue-600 hover:text-blue-700">Напишите нам!</a>
         </p>
         <a href="https://t.me/burtranslate" target="_blank" rel="noopener noreferrer" class="ml-2" aria-label="Открыть чат в Telegram">
-          <LogosTelegram class="text-xl" aria-hidden="true" focusable="false"/>
+          <TelegramLogo aria-hidden="true" focusable="false"/>
         </a>
       </div>
     </section>
